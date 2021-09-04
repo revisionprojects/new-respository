@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Home Page</h1>
+        <p class="col-md-8 fs-4">This utility can be use to look up known information on companies leveraging the ticker symbol. You can also save them to the database for a list view on the add stock page.</p>
+        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+    </div>
+</div>
+{%if ticker %}
+    {{ ticker }}
+{% endif %}
+
+{% if api %}
+    {% if api == "Error..." %}
+        There was an issue with your ticker symbol,
+        Please try again.
+    {% else %}
+
+    
+<div class="card" style="width: 18rem;">
+<div class="card-body">
+    <h5 class="card-title">{{ api.companyName }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Price: $ {{ api.latestPrice }}</h6>
+    <p class="card-text">        
+        Previous Close: $ {{ api.previousClose }}</br>
+        Market Cap: {{ api.marketCap }} </br>
+        YTD Change: {{ api.ytdChange }} </br>
+        52 Week High: {{ api.week52High }} </br>
+        52 Week Low: {{ api.week52Low }} </br></p>
+
+</div>
+</div>
+
+
+
+
+    {% endif %}
+{% endif %}    
+
+{% endblock %}
