@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'stock.urls'
+ROOT_URLCONF = 'my_django_project.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'stock.wsgi.application'
+WSGI_APPLICATION = 'my_django_project.wsgi.application'
 
 
 # Database
