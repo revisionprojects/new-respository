@@ -84,9 +84,9 @@ DATABASES = {
     }
 }
 
-DATABASE_URL = os.environ['postgres://wlxvjqcfgjjjfp:f455971a1045b90ba66e67ae66af7163c667eee5e52b6da67b52cf9b32d4230f@ec2-54-156-60-12.compute-1.amazonaws.com:5432/de3u5bvtb0u0a2']
+#DATABASE_URL = os.environ['postgres://wlxvjqcfgjjjfp:f455971a1045b90ba66e67ae66af7163c667eee5e52b6da67b52cf9b32d4230f@ec2-54-156-60-12.compute-1.amazonaws.com:5432/de3u5bvtb0u0a2']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
