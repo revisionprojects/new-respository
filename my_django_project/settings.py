@@ -81,19 +81,14 @@ WSGI_APPLICATION = 'my_django_project.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config()
 }
+
+heroku config:set DISABLE_COLLECTSTATIC=1  
 bashCommand = heroku config:get DATABASE_URL -a revision-projects #Use your app_name
 
 output = subprocess.check_output([‘bash’,’-c’, bashCommand]).decode(“utf-8”) # executing the bash command and converting byte to string
 
 DATABASES[‘default’] = dj_database_url.config(default=output,conn_max_age=600, ssl_require=True) #making connection to heroku DB without having to set DATABASE_URL env variable
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-#DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-#}
 
 
 #db_from_env = dj_database_url.config(conn_max_age=500)
