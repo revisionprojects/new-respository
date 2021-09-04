@@ -77,7 +77,10 @@ WSGI_APPLICATION = 'my_django_project.wsgi.application'
 
 
 # Database
-bashCommand = “heroku config:get DATABASE_URL -a app_name” #Use your app_name
+DATABASES = {
+    'default': dj_database_url.config()
+}
+bashCommand = “heroku config:get DATABASE_URL -a revision-projects” #Use your app_name
 
 output = subprocess.check_output([‘bash’,’-c’, bashCommand]).decode(“utf-8”) # executing the bash command and converting byte to string
 
