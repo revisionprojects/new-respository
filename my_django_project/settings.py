@@ -15,6 +15,7 @@ import django_heroku
 import psycopg2
 import dj_database_url
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'my_django_project.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config()
 }
-bashCommand = “heroku config:get DATABASE_URL -a revision-projects” #Use your app_name
+bashCommand = heroku config:get DATABASE_URL -a revision-projects #Use your app_name
 
 output = subprocess.check_output([‘bash’,’-c’, bashCommand]).decode(“utf-8”) # executing the bash command and converting byte to string
 
